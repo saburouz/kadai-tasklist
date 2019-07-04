@@ -23,9 +23,8 @@ class TasksController < ApplicationController
         flash[:success] = 'Task が正常に登録されました'
         redirect_to @task
     else
-      @microposts = current_user.microposts.order(id: :desc).page(params[:page])
         flash.now[:danger] = 'Task が登録されませんでした'
-        render :new
+        render 'new'
     end
   end
 
